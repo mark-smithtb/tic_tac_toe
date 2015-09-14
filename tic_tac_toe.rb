@@ -76,7 +76,7 @@ class Game
       wins.each do |win|
         win.all? do |positions|
           if win.all? { |positions| @board[positions] == current_player.symbol }
-            puts "#{current_player} wins"
+            puts "#{current_player.name} wins"
             exit
           end
         end
