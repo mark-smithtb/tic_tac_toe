@@ -1,7 +1,14 @@
-require_relative 'player.rb'
+class Computer
+  attr_accessor :symbol, :name
 
-class Computer < Player
-  def initialize
-    super
+  def initialize(name, symbol)
+    self.name = name
+    self.symbol = symbol
   end
+
+  def turn(board)
+    available = board.find_all {|positions| positions.is_a? Integer}
+    position_choice = available.sample
+    board[position_choice - 1] = symbol
+end
 end
